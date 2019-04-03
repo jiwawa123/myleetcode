@@ -9,6 +9,7 @@ public class LengthOfLongestSubstring {
         System.out.println(lengthOfLongestSubstring("aabaab!bb"));
     }
 
+    //this is test
     public static int lengthOfLongestSubstring(String s) {
         if (null == s || s.equals(""))
             return 0;
