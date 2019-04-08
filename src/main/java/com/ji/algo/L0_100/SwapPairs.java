@@ -28,4 +28,14 @@ public class SwapPairs {
         }
         return head.next;
     }
+    //大佬做法，一直递归
+    public ListNode swapPairsII(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode next = head.next;
+        head.next = swapPairs(next.next);
+        next.next = head;
+        return next;
+    }
 }
