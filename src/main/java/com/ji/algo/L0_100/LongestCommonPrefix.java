@@ -33,7 +33,7 @@ public class LongestCommonPrefix {
         return "";
     }
     //这个直接使用并行，而且没有使用流的方法，虽然代码长度看起来很多，但是直接使用流开销比较大
-    
+
     public String longestCommonPrefixII(String[] strs) {
         String answer = "";
         if(strs.length==0)
