@@ -7,13 +7,19 @@ package com.ji.algo.L51_100;/*
 import com.ji.algo.Util.Interval;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MergeInterval {
     public static void main(String[] args) {
         List<Interval> l = new ArrayList<>();
         l.add(new Interval(1,4));
         l.add(new Interval(0,4));
-        merge(l);
+        List<Interval> tmp = l.stream().sorted((o1, o2) -> {
+            if(o1.start!=o2.start)
+                return o1.start - o2.start;
+            return o1.end - o2.end;
+        }).collect(Collectors.toList());
+        tmp.stream().forEach(System.out::println);
     }
 
     public static List<Interval> merge(List<Interval> intervals) {
