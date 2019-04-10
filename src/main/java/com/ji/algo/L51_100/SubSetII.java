@@ -18,7 +18,7 @@ public class SubSetII {
     HashSet<List<Integer>> list = new HashSet<>();
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        
+
         if (null == nums || nums.length == 0)
             return new ArrayList<>(list);
         List<Integer> tmp = new ArrayList<>();
