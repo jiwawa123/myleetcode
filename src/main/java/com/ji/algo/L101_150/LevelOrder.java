@@ -1,4 +1,4 @@
-package com.ji.algo.L101_105;/*
+package com.ji.algo.L101_150;/*
     user ji
     data 2019/4/11
     time 8:14 PM
@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 public class LevelOrder {
     public static void main(String[] args) {
