@@ -6,7 +6,7 @@ package com.ji.algo.L101_150;/*
 
 import com.ji.algo.Util.TreeNode;
 
-public class minDepth {
+public class MinDepth {
     public static void main(String[] args) {
 
     }
