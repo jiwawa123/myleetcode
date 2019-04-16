@@ -26,9 +26,26 @@ public class Rob {
 
                 }
             } else {
-                arr[i] = Math.max(arr[i - 2] + nums[i], arr[i-1]);
+                arr[i] = Math.max(arr[i - 2] + nums[i], arr[i - 1]);
             }
-            max = Math.max(max,arr[i]);
+            max = Math.max(max, arr[i]);
+        }
+        return max;
+    }
+
+    public int robII(int[] nums) {
+        int max = 0;
+        if (null == nums || nums.length == 0)
+            return 0;
+        int f = nums[0];
+        max = Math.max(f, max);
+        if (nums.length == 1)
+            return max;
+        int s = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < nums.length; i++) {
+            int tmp = Math.max(f + nums[i], s);
+            f = s;
+            s = tmp;
         }
         return max;
     }
