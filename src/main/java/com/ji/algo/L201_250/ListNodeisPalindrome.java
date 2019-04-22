@@ -8,8 +8,15 @@ import com.ji.algo.Util.ListNode;
 
 public class ListNodeisPalindrome {
     public static void main(String[] args) {
-
+        ListNode l1 = new ListNode(1);
+        ListNode l2 = l1;
+        for (int i = 2; i < 4; i++) {
+            l2.next = new ListNode(i);
+            l2 = l2.next;
+        }
+        reverse(l1);
     }
+
     /*
     思路：
     先找到中间节点；
@@ -24,12 +31,12 @@ public class ListNodeisPalindrome {
         ListNode fast = head;
         ListNode slow = head;
         // 根据快慢指针，找到链表的中点
-        while(fast.next != null && fast.next.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
         slow = reverse(slow.next);
-        while(slow != null) {
+        while (slow != null) {
             if (head.val != slow.val) {
                 return false;
             }
@@ -39,7 +46,7 @@ public class ListNodeisPalindrome {
         return true;
     }
 
-    private ListNode reverse(ListNode head){
+    private static ListNode reverse(ListNode head) {
         // 递归到最后一个节点，返回新的新的头结点
         if (head.next == null) {
             return head;
