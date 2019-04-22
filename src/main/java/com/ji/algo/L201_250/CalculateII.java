@@ -28,7 +28,7 @@ public class CalculateII {
                 if (s.charAt(i) == ')') {
                     int index = stack.pop();
                     int k = calculateII(s.substring(index + 1, i));
-                    
+
                     s = s.substring(0, index) + k + s.substring(i + 1, s.length());
 
                     i = index;
