@@ -20,4 +20,29 @@ public class Ugly {
             num /= 5;
         return num == 1;
     }
+    public int nthUglyNum(int n){
+        if (n < 0) {
+            return 0;
+        }
+        int[] nums = new int[n];
+        nums[0] = 1;
+        int p2 = 0;
+        int p3 = 0;
+        int p5 = 0;
+        int i = 1;
+        while (i < n) {
+            int min = Math.min(Math.min(nums[p2] * 2, nums[p3] * 3), nums[p5] * 5);
+            if (min == nums[p2] * 2) {
+                p2++;
+            } else if (min == nums[p3] * 3) {
+                p3++;
+            } else {
+                p5++;
+            }
+            if (min != nums[i - 1]) {
+                nums[i++] = min;
+            }
+        }
+        return nums[n - 1];
+    }
 }
