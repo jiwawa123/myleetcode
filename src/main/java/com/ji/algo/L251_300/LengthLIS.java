@@ -46,15 +46,7 @@ public class LengthLIS {
             else
                 j = med - 1;
         }
-        if (i < tmp.size()) {
-            if (tmp.get(i) < k) {
-                tmp.set(i + 1, k);
-            } else {
-                tmp.set(i, k);
-            }
-        } else {
-            tmp.set(tmp.size() - 1, k);
-        }
+
 
     }
 }
