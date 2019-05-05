@@ -5,7 +5,7 @@ package com.ji.algo.L451_500;/*
 */
 
 public class PredictTheWinner {
-    
+
     public boolean PredictTheWinner(int[] nums) {
         if(nums.length%2==0)
             return true;
