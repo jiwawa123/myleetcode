@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyHashSet {
+    List<Integer> list = new ArrayList<>();
     boolean[] map = new boolean[1000005];
     public MyHashSet() {
 
