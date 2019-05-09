@@ -16,4 +16,5 @@ public class DetectCapitalUse {
         String tmp = word.substring(1,word.length()).toLowerCase();
         return tmp.equals(word.substring(1,word.length()))||t1.equals(word);
     }
+
 }
