@@ -12,11 +12,8 @@ public class DetectCapitalUse {
     public boolean detectCapitalUse(String word) {
         if (null == word || word.length() < 2)
             return true;
-        String t1 = word.toLowerCase();
-        String t2 = word.toUpperCase();
-        if(t1.equals(word)||t2.equals(word))
-            return true;
-        String tmp = word.substring(1,word.length());
-        return tmp.equals(word.substring(1,word.length()));
+        String t1 = word.toUpperCase();
+        String tmp = word.substring(1,word.length()).toLowerCase();
+        return tmp.equals(word.substring(1,word.length()))||t1.equals(word);
     }
 }
