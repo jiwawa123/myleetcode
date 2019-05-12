@@ -10,7 +10,7 @@ public class JewelsInStones {
     }
 
     public int numJewelsInStones(String J, String S) {
-        int arr[] = new int[57];
+        int arr[] = new int[58];
         for (int i = 0; i < J.length(); i++) {
             arr[J.charAt(i) - 'A'] += 1;
         }
