@@ -10,32 +10,18 @@ public class BinarySubStrings {
     }
 
     public int countBinarySubstrings(String s) {
-        int count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            StringBuffer sp = new StringBuffer();
-            sp.append(s.charAt(i));
-            for (int j = i + 1; j < s.length(); j++) {
-                sp.append(s.charAt(j));
-                if(sp.length()%2==0){
-                    if(isValid(sp.toString())){
-                        count++;
-                    }
-                }
+        int last, cur, res;
+        last = res = 0;
+        cur = 1;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) cur++;
+            else {
+                last = cur;
+                cur = 1;
             }
+            if (last >= cur) res++;
         }
-        return count;
-    }
-
-    public boolean isValid(String string) {
-        String tmp = string.substring(0, string.length() / 2);
-        String tmp1 = string.substring(string.length() / 2, string.length());
-        if (!tmp.contains("1") && !tmp1.contains("0")) {
-            return true;
-        }
-        if (!tmp.contains("0") && !tmp1.contains("1")) {
-            return true;
-        }
-        return false;
+        return res;
     }
 
 
