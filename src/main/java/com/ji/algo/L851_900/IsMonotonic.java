@@ -15,6 +15,8 @@ public class IsMonotonic {
         int increase = 0;
         int descreas = 0;
         for (int i = 1; i < A.length; i++) {
+            if (increase > 0 && descreas > 0)
+                return false;
             if (A[i] - A[i - 1] == 0)
                 continue;
             if (A[i] - A[i - 1] < 0)
