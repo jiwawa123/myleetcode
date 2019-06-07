@@ -4,9 +4,14 @@ package com.ji.algo.L601_650;/*
     time 9:38 AM
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SovleEquation {
     public static void main(String[] args) {
         System.out.println(solveEquation("-x=-1"));
+        List<Integer> list = new ArrayList<>();
+        System.out.println(list.size());
     }
 
     public static String solveEquation(String equation) {
@@ -105,4 +110,5 @@ public class SovleEquation {
             return "x=" + (right_sum - left_sum) / tmp_;
         }
     }
+
 }
