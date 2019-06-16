@@ -72,4 +72,22 @@ public class SortColor {
         num[j] = tmp;
     }
 
+    public void sortIV(int nums[]) {
+        if (nums == null || nums.length < 2)
+            return;
+        int len = nums.length;
+        int i = 0, j = nums.length - 1;
+        for (int k = 0; i < len; i++) {
+            if (k > j) break;
+            if (nums[k] == 0 && k != i) {
+                swap(nums, k, i);
+                k++;
+                i++;
+            } else if (nums[k] == 2 && k != j) {
+                swap(nums, k, j);
+                j--;
+                k++;
+            }
+        }
+    }
 }
