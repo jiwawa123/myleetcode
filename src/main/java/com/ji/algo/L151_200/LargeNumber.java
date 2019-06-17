@@ -17,28 +17,27 @@ public class LargeNumber {
             return "0";
         if (nums.length == 1)
             return "" + nums[0];
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            list.add("" + nums[i]);
-        }
-        Collections.sort(list, new Comparator<String>() {
+        StringBuffer sp = new StringBuffer();
+        String[] sortarr = new String[nums.length];
+        int i = 0;
+        for (int n : nums)
+            sortarr[i++] = String.valueOf(n);
+        Arrays.sort(sortarr, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                return compareString(o1, o2);
+                return (o2 + o1).compareTo(o1 + o2);
             }
         });
-        StringBuffer sp = new StringBuffer();
-        for (int i = 0; i < list.size(); i++) {
-            sp.append(list.get(i));
-        }
-        if(sp.charAt(0)=='0')
-            return 0+"";
+        if (sortarr[0].equals("0"))
+            return "0";
+        for (String tmp : sortarr)
+            sp.append(tmp);
         return sp.toString();
     }
 
-    public int compareString(String o1, String o2) {
-        long tmp1 = Long.valueOf(o1 + o2);
-        long tmp2 = Long.valueOf(o2 + o1);
-        return (int)(tmp2 - tmp1);
-    }
+//    public int compareString(String o1, String o2) {
+//        long tmp1 = Long.valueOf(o1 + o2);
+//        long tmp2 = Long.valueOf(o2 + o1);
+//        return (int)(tmp2 - tmp1);
+//    }
 }
