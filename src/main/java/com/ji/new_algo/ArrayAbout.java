@@ -9,7 +9,28 @@ import java.util.Arrays;
 public class ArrayAbout {
 
     public static void main(String[] args) {
-        System.out.println(Math.floor(-0.5));
+        System.out.println(compareVersion("1", "0"));
+    }
+
+    public static int compareVersion(String version1, String version2) {
+        String s1[] = version1.split("\\.");
+        String s2[] = version2.split("\\.");
+        int i = 0;
+        while (i < s1.length || i < s2.length) {
+            int t1 = 0;
+            int t2 = 0;
+            if (i < s1.length) {
+                t1 = Integer.valueOf(s1[i]);
+            }
+            if (i < s2.length) {
+                t2 = Integer.valueOf(s2[i]);
+            }
+            if (t1 > t2)
+                return 1;
+            if (t1 < t2)
+                return -1;
+        }
+        return 0;
     }
 
     public int maxArea(int[] height) {
