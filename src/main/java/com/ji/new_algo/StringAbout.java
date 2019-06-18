@@ -91,4 +91,12 @@ public class StringAbout {
         help(res, left + 1, right, tmp + "(", n);
         help(res, left, right + 1, tmp + ")", n);
     }
+
+    public int titleToNumber(String s) {
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            count+=(s.charAt(i)-'A'+1)*(Math.pow(26,s.length() - i-1));
+        }
+        return count;
+    }
 }
