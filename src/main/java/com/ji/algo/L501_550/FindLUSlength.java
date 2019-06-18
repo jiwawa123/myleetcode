@@ -6,7 +6,7 @@ package com.ji.algo.L501_550;/*
 
 public class FindLUSlength {
     public static void main(String[] args) {
-
+        
     }
     public int findLUSlength(String a, String b) {
         if(a==null&&b==null)
