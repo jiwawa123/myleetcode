@@ -4,6 +4,8 @@ package com.ji.algo.L551_600;/*
     time 11:03 PM
 */
 
+import java.util.Arrays;
+
 public class RecreateMatrix {
     public static void main(String[] args) {
         int arr[][] ={{1,2},{3,4}};
@@ -24,6 +26,7 @@ public class RecreateMatrix {
                 arr[i][j] = nums[tr][tc];
             }
         }
+
         return arr;
     }
 }

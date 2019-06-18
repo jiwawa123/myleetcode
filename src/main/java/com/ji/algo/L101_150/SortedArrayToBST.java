@@ -7,6 +7,7 @@ package com.ji.algo.L101_150;/*
 import com.ji.algo.Util.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SortedArrayToBST {
@@ -65,6 +66,16 @@ public class SortedArrayToBST {
         TreeNode root = new TreeNode(nums[med]);
         root.left = getSort(nums, start, med - 1);
         root.right = getSort(nums, med + 1, end);
+        return root;
+    }
+    public TreeNode sortedArrayToBSTII(int[] nums) {
+        if(nums==null||nums.length==0)
+            return null;
+        int index = nums.length/2;
+        TreeNode root = new TreeNode(nums[index]);
+        if(index>0)
+            root.left = sortedArrayToBST(Arrays.copyOfRange(nums,0,index));
+        root.right = sortedArrayToBST(Arrays.copyOfRange(nums,index+1,nums.length));
         return root;
     }
 }
