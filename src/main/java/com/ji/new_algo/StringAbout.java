@@ -5,6 +5,7 @@ package com.ji.new_algo;/*
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -95,8 +96,29 @@ public class StringAbout {
     public int titleToNumber(String s) {
         int count = 0;
         for (int i = 0; i < s.length(); i++) {
-            count+=(s.charAt(i)-'A'+1)*(Math.pow(26,s.length() - i-1));
+            count += (s.charAt(i) - 'A' + 1) * (Math.pow(26, s.length() - i - 1));
         }
         return count;
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        if (s == null && t == null)
+            return true;
+        if (s == null || t == null || s.length() != t.length())
+            return false;
+        int a[] = new int[26];
+        Arrays.fill(a, -1);
+        int b[] = new int[26];
+        Arrays.fill(b, -1);
+        for (int i = 0; i < s.length(); i++) {
+            if (a[s.charAt(i) - 'a'] == -1 && b[t.charAt(i) - 'a'] == -1) {
+                a[s.charAt(i) - 'a'] = t.charAt(i) - 'a';
+                b[t.charAt(i) - 'a'] = s.charAt(i) - 'a';
+                continue;
+            }
+            if (a[s.charAt(i) - 'a'] != t.charAt(i) - 'a' || b[t.charAt(i) - 'a'] != s.charAt(i) - 'a')
+                return false;
+        }
+        return true;
     }
 }
