@@ -9,7 +9,8 @@ import java.util.Arrays;
 public class ArrayAbout {
 
     public static void main(String[] args) {
-        System.out.println(compareVersion("1", "0"));
+        int arr[] = {2,3,1,2,4,3};
+        System.out.println(minSubArrayLen(7,arr));
     }
 
     public static int compareVersion(String version1, String version2) {
@@ -83,5 +84,35 @@ public class ArrayAbout {
         }
         return arr;
 
+    }
+
+    public static int minSubArrayLen(int s, int[] nums) {
+        int len = Integer.MAX_VALUE;
+        int tmp = 0;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] >= s)
+                return 1;
+            sum += nums[i];
+            tmp++;
+            if (sum == s) {
+                len = Math.min(len, tmp);
+                continue;
+            }
+            if (sum > s) {
+                int index = i - tmp + 1;
+                while (sum > s) {
+                    if (sum - nums[index] >= s)
+                        sum -= nums[index++];
+                    else
+                        break;
+
+                }
+                tmp = i - index + 1;
+                len = Math.min(len, tmp);
+            }
+
+        }
+        return len;
     }
 }
