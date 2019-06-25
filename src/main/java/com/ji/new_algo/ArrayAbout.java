@@ -4,13 +4,15 @@ package com.ji.new_algo;/*
     time 10:10 AM
 */
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayAbout {
 
     public static void main(String[] args) {
-        int arr[] = {2,3,1,2,4,3};
-        System.out.println(minSubArrayLen(7,arr));
+        int arr[] = {2, 3, 1, 2, 4, 3};
+        System.out.println(minSubArrayLen(7, arr));
     }
 
     public static int compareVersion(String version1, String version2) {
@@ -114,5 +116,23 @@ public class ArrayAbout {
 
         }
         return len;
+    }
+
+    public List<Integer> getRow(int rowIndex) {
+        int i = 1;
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        while (i <= rowIndex) {
+            List<Integer> tmp = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i)
+                    tmp.add(1);
+                else
+                    tmp.add(list.get(j - 1) + list.get(j));
+            }
+            i++;
+            list = tmp;
+        }
+        return list;
     }
 }
