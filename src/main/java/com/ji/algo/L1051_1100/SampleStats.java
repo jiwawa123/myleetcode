@@ -52,10 +52,10 @@ public class SampleStats {
             int r = 0;
             int index = 0;
             for (int i = 0; i < 256; i++) {
-                if (index <= left - 1 && index + count[i] >= left - 1) {
+                if (index < left && index + count[i] >= left) {
                     l = i;
                 }
-                if (index >= left - 1 && index + count[i] >= left) {
+                if (index < left + 1 && index + count[i] >= left + 1) {
                     r = i;
                     break;
                 }
