@@ -5,14 +5,15 @@ package com.ji.algo.L1101_1150;/*
 */
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class CorpFlightBookings {
     public static void main(String[] args) {
-
+        System.out.println(String.format("this is %s", "test "));
     }
 
     public int[] corpFlightBookings(int[][] bookings, int n) {
-        int arr[] = new int[n+1];
+        int arr[] = new int[n + 1];
         for (int tmp[] : bookings
                 ) {
             arr[tmp[0] - 1] += tmp[2];
@@ -22,6 +23,6 @@ public class CorpFlightBookings {
             arr[i] += arr[i - 1];
         }
 
-        return Arrays.copyOfRange(arr,0,n);
+        return Arrays.copyOfRange(arr, 0, n);
     }
 }
