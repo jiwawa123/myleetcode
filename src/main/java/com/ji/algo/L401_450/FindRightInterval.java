@@ -52,7 +52,7 @@ public class FindRightInterval {
                 i = med + 1;
             }
         }
-        
+
         if(list.get(i)<num)
             return i+1;
         return i;
