@@ -41,7 +41,6 @@ public class WordDictionary {
         set.add(word);
         map1.put(word.charAt(0), set);
         map.put(len, map1);
-
     }
 
     /**
