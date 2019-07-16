@@ -27,7 +27,7 @@ public class LeastBricks {
         for (int t : map.values()) {
             max = Math.max(t, max);
         }
-        return all - max;
 
+        return all - max;
     }
 }
