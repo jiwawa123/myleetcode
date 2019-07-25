@@ -13,7 +13,7 @@ import java.util.Queue;
 
 public class IsCompleteTree {
     public static void main(String[] args) {
-        
+
 
 
     }
