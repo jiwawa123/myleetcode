@@ -74,4 +74,35 @@ public class App {
         }
         return stack.pop();
     }
+
+    public String countAndSay(int n) {
+        if (n == 1)
+            return 1 + "";
+        StringBuilder sp = new StringBuilder("1");
+        int tmp = 1;
+        while (tmp < n) {
+            StringBuilder sp1 = new StringBuilder();
+            int count = 0;
+            char a = sp.charAt(0);
+            int index = 0;
+            while (index < sp.length()) {
+                if (sp.charAt(index) == a) {
+                    count++;
+                } else {
+                    sp1.append(count);
+                    sp1.append(a);
+                    a = sp.charAt(index);
+                    count = 1;
+                }
+                if (index == sp.length() - 1) {
+                    sp1.append(count);
+                    sp1.append(a);
+                }
+                index++;
+            }
+            sp = sp1;
+            tmp++;
+        }
+        return sp.toString();
+    }
 }
