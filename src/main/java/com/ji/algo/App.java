@@ -7,9 +7,7 @@ import java.util.*;
  */
 public class App {
     public static void main(String[] args) {
-
-        int arr[] = {-1, 2, 1, -4};
-        System.out.println(threeSumClosest(arr, 1));
+        new App().isPalindrome("A man, a plan, a canal: Panama");
     }
 
     public static int threeSumClosest(int[] nums, int target) {
@@ -104,5 +102,48 @@ public class App {
             tmp++;
         }
         return sp.toString();
+    }
+
+    public boolean isPalindrome(String s) {
+        int i = 0;
+        int j = s.length() - 1;
+        s = s.toLowerCase();
+        while (i < j) {
+            while (!isLetterOrNumber(s.charAt(i)) && i < j) {
+                i++;
+            }
+            while (!isLetterOrNumber(s.charAt(j)) && j > i) {
+                j--;
+            }
+            if (i < j) {
+                if (s.charAt(i++) != s.charAt(j--))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isLetterOrNumber(char a) {
+        return (a >= 'a' && a <= 'z') || (a >= '0' && a <= '9') || (a >= 'A' && a <= 'Z');
+    }
+
+    public List<String> letterCombinations(String a) {
+        List<String> list = new ArrayList();
+        if (a == null || a.length() == 0) {
+            return list;
+        }
+        list.add("");
+        String arr[] = {"abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        for (int i = 0; i < a.length(); i++) {
+            List<String> tmp = new ArrayList<>();
+            int index = a.charAt(i) - '2';
+            for (int j = 0; j < arr[index].length(); j++) {
+                for (int k = 0; k < list.size(); k++) {
+                    tmp.add(list.get(k) + arr[index].charAt(j));
+                }
+            }
+            list = tmp;
+        }
+        return list;
     }
 }
