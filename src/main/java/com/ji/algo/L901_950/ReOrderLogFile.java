@@ -9,14 +9,22 @@ import java.util.Comparator;
 
 public class ReOrderLogFile {
     public static void main(String[] args) {
-//        String[] arr = {"a1 9 2 3 1", "g1 act car", "zo4 4 7", "ab1 off key dog", "a8 act zoo"};
-//        System.out.println(Arrays.toString(reorderLogFiles(arr)));
-        int arr[] = {2,1,3,6,4};
+        String str = "a1 9 2 3 1";
+        String str1 = "zo4 4 7";
+        System.out.println(help_match(str, str1));
 
     }
 
     public static String[] reorderLogFiles(String[] logs) {
-        Arrays.sort(logs, (o1,o2)->help_match(o1, o2));
+        for (int i = logs.length - 1; i >= 0; i--) {
+            for (int j = 1; j <= i; j++) {
+                if (help_match(logs[j - 1], logs[j]) > 0) {
+                    String tmp = logs[j];
+                    logs[j] = logs[j - 1];
+                    logs[j - 1] = tmp;
+                }
+            }
+        }
         return logs;
     }
 
@@ -36,12 +44,38 @@ public class ReOrderLogFile {
                 break;
             }
         }
-        if (flag) {
-            return -1;
+        if (flag && flag1) {
+            int i = 1, j = 1;
+            while (i < arr.length && j < arr1.length) {
+                if (compare(arr[i], arr1[j]) > 0) {
+                    return 1;
+                }
+                if (compare(arr[i], arr1[j]) < 0)
+                    return -1;
+                i++;
+                j++;
+            }
+            if (arr.length == arr1.length) {
+                return arr[0].compareTo(arr1[0]);
+            }
+            return arr.length - arr1.length;
         }
         if (flag1) {
             return 1;
         }
         return -1;
+    }
+
+    public static int compare(String a, String b) {
+        int i = 0, j = 0;
+        while (i < a.length() && j < b.length()) {
+            if (a.charAt(i) < b.charAt(j))
+                return -1;
+            if (a.charAt(i) > b.charAt(j))
+                return 1;
+            i++;
+            j++;
+        }
+        return a.length() - b.length();
     }
 }
