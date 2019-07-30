@@ -7,7 +7,12 @@ import java.util.*;
  */
 public class App {
     public static void main(String[] args) {
-        new App().isPalindrome("A man, a plan, a canal: Panama");
+        Map<Integer, Integer> map = new LinkedHashMap<>();
+        for (int i = 0; i < 3; i++) {
+            map.put(i, i);
+        }
+
+        System.out.println(map.size());
     }
 
     public static int threeSumClosest(int[] nums, int target) {
