@@ -4,10 +4,6 @@ package com.ji.algo.L401_450;/*
     time 9:39 AM
 */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class NumberOfArithmeticSlices {
     public static void main(String[] args) {
