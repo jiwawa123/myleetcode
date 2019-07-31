@@ -50,23 +50,18 @@ public class PyramidTransitionII {
             return;
         if (flag)
             return;
+        Set<String> tmp1 = new HashSet<>();
+
+        int count = 0;
         for (String string : str
                 ) {
+            boolean ff = true;
             if (string.length() == 1) {
                 flag = true;
                 return;
             }
             Set<String> tmp = new HashSet<>();
             tmp.add("");
-            boolean ff = true;
-            for (int i = 0; i < string.length() - 1; i++) {
-                if (!map.containsKey(string.substring(i, i + 2))) {
-                    ff = false;
-                    break;
-                }
-            }
-            if (!ff)
-                continue;
             for (int i = 0; i < string.length() - 1; i++) {
                 if (map.containsKey(string.substring(i, i + 2))) {
                     Set<Character> result = map.get(string.substring(i, i + 2));
@@ -84,8 +79,15 @@ public class PyramidTransitionII {
                 }
             }
             if (ff) {
-                help(tmp);
+                count++;
+                for (String k : tmp
+                        ) {
+                    tmp1.add(k);
+                }
             }
+        }
+        if (count > 0) {
+            help(tmp1);
         }
 
     }
