@@ -1,7 +1,7 @@
 package com.ji.algo.L51_100;/*
     user ji
     data 2019/8/3
-    time 6:40 PM
+    time 6:49 PM
 */
 
 import java.util.ArrayList;
@@ -9,8 +9,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Merge {
-    public int[][] merge(int[][] intervals) {
+public class Insert {
+    public static void main(String[] args) {
+
+    }
+    public int[][] insert(int[][] intervals, int[] newInterval) {
         if (intervals.length <= 1)
             return intervals;
         List<int[]> list = new ArrayList();
@@ -18,6 +21,7 @@ public class Merge {
                 ) {
             list.add(arr);
         }
+        list.add(newInterval);
         Collections.sort(list, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
@@ -48,5 +52,4 @@ public class Merge {
         }
         return arr;
     }
-
 }
