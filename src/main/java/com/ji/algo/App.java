@@ -7,12 +7,13 @@ import java.util.*;
  */
 public class App {
     public static void main(String[] args) {
-        Map<Integer, Integer> map = new LinkedHashMap<>();
-        for (int i = 0; i < 3; i++) {
-            map.put(i, i);
+        try {
+            System.out.println(2 / 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("hello");
         }
-
-        System.out.println(map.size());
     }
 
     public static int threeSumClosest(int[] nums, int target) {

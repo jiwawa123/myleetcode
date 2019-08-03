@@ -41,4 +41,27 @@ public class RomanToInt {
         }
         return answer;
     }
+    public int romanToIntII(String s) {
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('I', 1);
+        map.put('V', 5);
+        map.put('X', 10);
+        map.put('L', 50);
+        map.put('C', 100);
+        map.put('D', 500);
+        map.put('M', 1000);
+        int count = 0;
+        int tmp = 0;
+        int next = 0;
+        for (int i = 0; i < s.length(); i++) {
+            next = map.get(s.charAt(i));
+            if (next <= tmp) {
+                count += tmp;
+            } else {
+                count -= tmp;
+            }
+            tmp = next;
+        }
+        return count + tmp;
+    }
 }
