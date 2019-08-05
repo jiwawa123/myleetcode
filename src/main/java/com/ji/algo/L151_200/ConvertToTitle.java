@@ -28,12 +28,13 @@ public class ConvertToTitle {
         return sp.reverse().toString();
 
     }
+
     public String convertToTitleII(int n) {
-        String result = "";
-        while (n>0) {
-            result += (char) ('A' + (n - 1) % 26);
+        StringBuilder result = new StringBuilder();
+        while (n > 0) {
+            result.append((char) ('A' + (n - 1) % 26));
             n = (n - 1) / 26;
         }
-        return new StringBuffer(result).reverse().toString();
+        return result.reverse().toString();
     }
 }
