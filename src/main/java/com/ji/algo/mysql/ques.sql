@@ -6,3 +6,8 @@ select distinct a.Num ConsecutiveNums
 from Logs a,Logs b,Logs c
 where a.Num=b.Num and b.Num=c.Num
 and a.Id+1=b.Id and b.Id+1=c.Id
+
+#ques197 ,上升的温度,这个使用datediff函数即可
+select a.Id as Id from Weather a,Weather b
+where a.Temperature>b.Temperature and
+DATEDIFF(a.RecordDate,b.RecordDate) = 1;

@@ -32,7 +32,7 @@ public class NumDecodings {
                     tmp[i] = i > 1 ? tmp[i - 2] : 1;
                 continue;
             }
-            
+
             int tt = Integer.valueOf("" + s.charAt(i - 1) + "" + s.charAt(i));
             if (tt > 26 || s.charAt(i - 1) == '0') {
                 tmp[i] = tmp[i - 1];
