@@ -32,7 +32,7 @@ public class GetIntersectionNode {
                     headB = headB.next;
                 }
             }
-        }else{
+        } else {
             int tmp = len2 - len1;
             while (tmp > 0) {
                 headB = headB.next;
@@ -47,5 +47,39 @@ public class GetIntersectionNode {
             }
         }
         return null;
+    }
+
+    public ListNode getIntersectionNodeII(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null)
+            return null;
+        int len1 = 0, len2 = 0;
+        ListNode A = headA;
+        ListNode B = headB;
+        while (A != null) {
+            len1++;
+            A = A.next;
+        }
+        while (B != null) {
+            len2++;
+            B = B.next;
+        }
+        if (len1 < len2) {
+            ListNode tmp = headA;
+            headA = headB;
+            headB = tmp;
+            int k = len1;
+            len1 = len2;
+            len2 = k;
+        }
+        int d = len1 - len2;
+        while (d > 0) {
+            headA = headA.next;
+            d--;
+        }
+        while (headA != headB) {
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return headA;
     }
 }
