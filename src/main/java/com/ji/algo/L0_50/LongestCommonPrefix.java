@@ -24,10 +24,10 @@ public class LongestCommonPrefix {
             }
         }
         for (int i = tmp.length() - 1; i >= 0; i--) {
-            final String ttmp = tmp.substring(0,i+1);
+            final String ttmp = tmp.substring(0, i + 1);
             boolean flag = Arrays.stream(strs).parallel().
                     allMatch(s -> s.startsWith(ttmp));
-            if(flag)
+            if (flag)
                 return ttmp;
         }
         return "";
@@ -36,36 +36,65 @@ public class LongestCommonPrefix {
 
     public String longestCommonPrefixII(String[] strs) {
         String answer = "";
-        if(strs.length==0)
+        if (strs.length == 0)
             return answer;
-        if(strs.length==1)
+        if (strs.length == 1)
             return strs[0];
         String tmp = strs[0];
         for (int i = 1; i < strs.length; i++) {
-            if(strs[i].length()<tmp.length()){
+            if (strs[i].length() < tmp.length()) {
                 tmp = strs[i];
             }
         }
-        if(tmp.equals(""))
+        if (tmp.equals(""))
             return "";
         int k = tmp.length();
-        while(k>0){
-            String ttmp = tmp.substring(0,k);
+        while (k > 0) {
+            String ttmp = tmp.substring(0, k);
             int count = 0;
             //开始寻找最长前缀
             for (int i = 0; i < strs.length; i++) {
-                if(strs[i].substring(0,k).equals(ttmp)){
+                if (strs[i].substring(0, k).equals(ttmp)) {
                     count++;
-                }else{
+                } else {
                     break;
                 }
             }
-            if(count==strs.length){
+            if (count == strs.length) {
                 return ttmp;
             }
             k--;
         }
 
         return answer;
+    }
+
+    //
+    public String longestCommonPrefixIII(String[] strs) {
+        if (strs == null || strs.length == 0)
+            return "";
+        if (strs.length == 1)
+            return strs[0];
+        String tmp = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            if (tmp.length() > strs[i].length()) {
+                tmp = strs[i];
+            }
+        }
+
+        for (int j = tmp.length(); j >= 1; j--) {
+            int count = 0;
+            String t = tmp.substring(0, j);
+            for (int i = 0; i < strs.length; i++) {
+                if (strs[i].substring(0, t.length()).equals(t)) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            if (count == strs.length)
+                return t;
+        }
+        return "";
     }
 }
