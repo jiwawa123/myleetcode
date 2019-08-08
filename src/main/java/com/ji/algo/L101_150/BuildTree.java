@@ -10,10 +10,12 @@ import java.util.Arrays;
 
 public class BuildTree {
     public static void main(String[] args) {
-
+        int arr[] = {3, 9, 20, 15, 7};
+        int inorder[] = {9, 3, 15, 20, 7};
+        System.out.println(buildTree(arr,inorder));
     }
 
-    public TreeNode buildTree(int[] preorder, int[] inorder) {
+    public static TreeNode buildTree(int[] preorder, int[] inorder) {
         if (null == preorder || preorder.length == 0)
             return null;
         if (preorder.length == 1)
@@ -26,7 +28,7 @@ public class BuildTree {
                 break;
             }
         }
-        int left[] = Arrays.copyOfRange(inorder, 0, index - 1);
+        int left[] = Arrays.copyOfRange(inorder, 0, index);
         int right[] = Arrays.copyOfRange(inorder, index + 1, inorder.length);
         int preLeft[] = Arrays.copyOfRange(preorder, 1, 1 + left.length);
         int preRight[] = Arrays.copyOfRange(preorder, 1 + preLeft.length, preorder.length);
