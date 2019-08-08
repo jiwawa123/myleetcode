@@ -8,16 +8,16 @@ import java.util.Stack;
 
 public class LargestRectangleArea {
     public static void main(String[] args) {
-        int arr[] = {2,1,5,6,2,3};
-        largestRectangleAreaII(arr);
+        int arr[] = {1,1};
+        System.out.println(largestRectangleArea(arr));
     }
-    public int largestRectangleArea(int[] array) {
+    public static int largestRectangleArea(int[] array) {
         int max = 0;
         if(array==null||array.length==0)
             return max;
         for (int i = 0; i < array.length; i++) {
             int len = 1;
-            for (int j = i-1; j >0 ; j--) {
+            for (int j = i-1; j >=0 ; j--) {
                 if(array[j]>=array[i])
                     len++;
                 else
