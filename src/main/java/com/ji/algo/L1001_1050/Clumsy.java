@@ -40,7 +40,6 @@ public class Clumsy {
         }
         if (flag)
             return tmp;
-
         return count - tmp;
     }
 }
