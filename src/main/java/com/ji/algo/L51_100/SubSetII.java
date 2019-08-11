@@ -5,13 +5,15 @@ package com.ji.algo.L51_100;/*
 */
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
 public class SubSetII {
     public static void main(String[] args) {
-        int arr[] = {1,2,2,3};
+        int arr[] = {4, 4, 1, 4, 4};
         List<List<Integer>> tmp = new SubSetII().subsetsWithDup(arr);
+        System.out.println(tmp.size());
         tmp.stream().forEach(System.out::println);
     }
 
@@ -21,6 +23,7 @@ public class SubSetII {
 
         if (null == nums || nums.length == 0)
             return new ArrayList<>(list);
+        Arrays.sort(nums);
         List<Integer> tmp = new ArrayList<>();
         help(tmp, 0, nums);
         return new ArrayList<>(list);
@@ -31,7 +34,7 @@ public class SubSetII {
         list.add(new ArrayList<>(tmp));
         for (int i = start; i < nums.length; i++) {
             tmp.add(nums[i]);
-            help(tmp, i + 1, nums);
+            help(new ArrayList<>(tmp), i + 1, nums);
             tmp.remove(tmp.size() - 1);
         }
     }
