@@ -10,15 +10,15 @@ public class MaxProfit {
     }
 
     public int maxProfit(int[] prices, int fee) {
-        if (prices == null || prices.length < 2)
+        int n = prices.length;
+        if (n <= 1)
             return 0;
-        int dp1[] = new int[prices.length];
-        int dp2[] = new int[prices.length];
-        dp1[0] = -prices[0];
-        for (int i = 1; i < prices.length; i++) {
-            dp1[i] = Math.max(dp1[i - 1], dp2[i - 1] - prices[i]);
-            dp2[i] = Math.max(dp2[i - 1], dp1[i - 1] + prices[i] - fee);
+        int buy = -prices[0];
+        int cash = 0;
+        for (int i = 1; i < n; i++) {
+            cash = Math.max(cash, buy + prices[i] - fee);
+            buy = Math.max(buy, cash - prices[i]);
         }
-        return dp2[prices.length - 1];
+        return cash;
     }
 }
