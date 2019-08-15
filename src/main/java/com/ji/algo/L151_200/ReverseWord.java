@@ -6,7 +6,7 @@ package com.ji.algo.L151_200;/*
 
 public class ReverseWord {
     public static void main(String[] args) {
-        reverseWords("a good   example");
+        System.out.println(reverseWords("a good   example"));
     }
 
     public static String reverseWords(String s) {
@@ -14,7 +14,9 @@ public class ReverseWord {
         String tmp[] = s.split(" ");
         StringBuffer sp = new StringBuffer();
         for (int i = tmp.length - 1; i >= 0; i--) {
-            sp.append(tmp[i]);
+            if (tmp[i].equals(""))
+                continue;
+            sp.append(tmp[i].trim());
             sp.append(" ");
         }
         return sp.toString().trim();
