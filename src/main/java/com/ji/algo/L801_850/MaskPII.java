@@ -16,10 +16,12 @@ public class MaskPII {
             return tmp[0].charAt(0) + "*****" + tmp[0].charAt(tmp[0].length() - 1)
                     + "@" + tmp[1];
         } else {
-            S = S.replaceAll("\\+", "");
-            S = S.replaceAll("\\-", "");
-            S = S.replaceAll("\\(", "");
-            S = S.replaceAll("\\)", "");
+            StringBuilder sp = new StringBuilder();
+            for(int i = 0;i<S.length();i++){
+                if(S.charAt(i)>='0'&&S.charAt(i)<='9')
+                    sp.append(S.charAt(i));
+            }
+            S = sp.toString();
             int len = S.length();
             String last = S.substring(S.length() - 4, S.length());
             switch (len) {
