@@ -11,3 +11,14 @@ and a.Id+1=b.Id and b.Id+1=c.Id
 select a.Id as Id from Weather a,Weather b
 where a.Temperature>b.Temperature and
 DATEDIFF(a.RecordDate,b.RecordDate) = 1;
+
+#ques601,体育馆的人流量 对于这类问题直接使用多个表进行拼接即可
+select distinct a.id,a.visit_date,a.people from stadium a,stadium b,stadium c
+where (a.id = b.id+1 and a.id = c.id+2 and a.people>=100 and b.people >=100
+       and c.people>=100)
+       or (a.id = b.id - 1 and a.id = c.id - 2 and a.people>=100 and b.people >=100
+       and c.people>=100)
+       or (a.id = b.id + 1 and a.id = c.id - 1 and a.people>=100 and b.people >=100
+       and c.people>=100)
+
+       order by a.id;
