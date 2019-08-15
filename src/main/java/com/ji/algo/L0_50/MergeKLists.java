@@ -7,42 +7,45 @@ package com.ji.algo.L0_50;/*
 import com.ji.algo.Util.ListNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MergeKLists {
     public ListNode mergeKLists(ListNode[] lists) {
-        if(null==lists||lists.length==0)
+        if (null == lists || lists.length == 0)
             return null;
         ListNode head = lists[0];
         for (int i = 1; i < lists.length; i++) {
-            head = mergeTwoLists(head,lists[i]);
+            head = mergeTwoLists(head, lists[i]);
         }
         return head;
 
     }
+
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode head = new ListNode(0);
         ListNode tmp = head;
-        while(l1!=null&&l2!=null){
-            if(l1.val<l2.val){
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
                 ListNode tp = new ListNode(l1.val);
                 tmp.next = tp;
                 tmp = tp;
                 l1 = l1.next;
-            }else{
+            } else {
                 ListNode tp = new ListNode(l2.val);
                 tmp.next = tp;
                 tmp = tp;
                 l2 = l2.next;
             }
         }
-        while(l1!=null){
+        while (l1 != null) {
             ListNode tp = new ListNode(l1.val);
             tmp.next = tp;
             tmp = tp;
             l1 = l1.next;
         }
-        while(l2!=null){
+        while (l2 != null) {
             ListNode tp = new ListNode(l2.val);
             tmp.next = tp;
             tmp = tp;
@@ -50,27 +53,51 @@ public class MergeKLists {
         }
         return head.next;
     }
-    public ListNode mergeKListsII(ListNode[] lists){
-        if(lists.length == 0)
+
+    public ListNode mergeKListsII(ListNode[] lists) {
+        if (lists.length == 0)
             return null;
-        if(lists.length == 1)
+        if (lists.length == 1)
             return lists[0];
-        if(lists.length == 2){
-            return mergeTwoLists(lists[0],lists[1]);
+        if (lists.length == 2) {
+            return mergeTwoLists(lists[0], lists[1]);
         }
 
-        int mid = lists.length/2;
+        int mid = lists.length / 2;
         ListNode[] l1 = new ListNode[mid];
-        for(int i = 0; i < mid; i++){
+        for (int i = 0; i < mid; i++) {
             l1[i] = lists[i];
         }
 
-        ListNode[] l2 = new ListNode[lists.length-mid];
-        for(int i = mid,j=0; i < lists.length; i++,j++){
+        ListNode[] l2 = new ListNode[lists.length - mid];
+        for (int i = mid, j = 0; i < lists.length; i++, j++) {
             l2[j] = lists[i];
         }
 
-        return mergeTwoLists(mergeKListsII(l1),mergeKListsII(l2));
+        return mergeTwoLists(mergeKListsII(l1), mergeKListsII(l2));
 
+    }
+
+    public ListNode mergeKListsIII(ListNode[] lists) {
+        if (lists == null || lists.length == 0)
+            return null;
+        if (lists.length == 1)
+            return lists[0];
+        List<Integer> list = new ArrayList<>();
+        for (ListNode tmp : lists
+                ) {
+            while (tmp != null) {
+                list.add(tmp.val);
+                tmp = tmp.next;
+            }
+        }
+        Collections.sort(list);
+        ListNode head = new ListNode(0);
+        ListNode next = head;
+        for (int i = 0; i < list.size(); i++) {
+            next.next = new ListNode(list.get(i));
+            next = next.next;
+        }
+        return head.next;
     }
 }
