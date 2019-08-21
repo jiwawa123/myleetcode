@@ -37,7 +37,7 @@ public class LastStoneWeight {
         if (tmp == 0) {
             return help(list);
         } else {
-            help(list, tmp);
+            helpI(list, tmp);
             return help(list);
         }
     }
@@ -49,6 +49,26 @@ public class LastStoneWeight {
                 break;
             i++;
         }
+        list.add(i, tmp);
+    }
+
+    public static void helpI(List<Integer> list, int tmp) {
+        int i = 0, j = list.size() - 1;
+        while (i < j) {
+            int med = (j - i) / 2 + i;
+            if (list.get(med) == tmp) {
+                i = med;
+                break;
+            } else if (list.get(med) > tmp) {
+                j = med - 1;
+            } else {
+                i = med + 1;
+            }
+        }
+
+
+        if (i<list.size()&&list.get(i) < tmp)
+            i += 1;
         list.add(i, tmp);
     }
 }
