@@ -11,23 +11,24 @@ import java.util.List;
 
 public class LastStoneWeight {
     public static void main(String[] args) {
-
+        int arr[] = {2, 7, 4, 1, 8, 1};
+        System.out.println(lastStoneWeight(arr));
     }
 
-    public int lastStoneWeight(int[] stones) {
+    public static int lastStoneWeight(int[] stones) {
         List<Integer> list = new LinkedList<Integer>();
         for (int i = 0; i < stones.length; i++) {
             list.add(stones[i]);
         }
+        Collections.sort(list);
         return help(list);
     }
 
-    public int help(List<Integer> list) {
-        if (list.size() == 1)
-            return list.get(0);
+    public static int help(List<Integer> list) {
         if (list.size() == 0)
             return 0;
-        Collections.sort(list);
+        if (list.size() == 1)
+            return list.get(0);
         int x = list.get(list.size() - 1);
         list.remove(list.size() - 1);
         int y = list.get(list.size() - 1);
@@ -36,8 +37,18 @@ public class LastStoneWeight {
         if (tmp == 0) {
             return help(list);
         } else {
-            list.add(tmp);
+            help(list, tmp);
             return help(list);
         }
+    }
+
+    public static void help(List<Integer> list, int tmp) {
+        int i = 0;
+        while (i < list.size()) {
+            if (list.get(i) > tmp)
+                break;
+            i++;
+        }
+        list.add(i, tmp);
     }
 }
