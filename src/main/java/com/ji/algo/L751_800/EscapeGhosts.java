@@ -18,4 +18,5 @@ public class EscapeGhosts {
         }
         return true;
     }
+
 }
