@@ -6,7 +6,7 @@ package com.ji.algo.L51_100;/*
 
 public class CanJump {
     public static void main(String[] args) {
-        int arr[] = {3, 2, 1, 0, 4};
+        int arr[] = {1,1,2,2,0,1,1};
         System.out.println(canJump(arr));
     }
 
@@ -21,6 +21,8 @@ public class CanJump {
             start = Math.max(start, nums[i] + i);
             if (start >= nums.length - 1)
                 return true;
+            if(start==i&&nums[i]==0)
+                return false;
         }
         return start >= nums.length - 1;
     }
