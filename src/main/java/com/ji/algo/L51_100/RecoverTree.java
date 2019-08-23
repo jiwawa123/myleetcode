@@ -19,24 +19,25 @@ public class RecoverTree {
     public void recoverTree(TreeNode root) {
         if (root == null)
             return;
-        List<TreeNode> list = new ArrayList();
-        List<Integer> num = new ArrayList();
+        int tmp = Integer.MAX_VALUE;
         Stack<TreeNode> stack = new Stack<>();
+        TreeNode last = root;
         while (!stack.isEmpty() || root != null) {
             if (root != null) {
                 stack.push(root);
                 root = root.left;
             } else {
                 root = stack.pop();
-                num.add(root.value);
-                list.add(root);
+                if (root.value > tmp) {
+                    int swap = root.value;
+                    root.value = last.value;
+                    last.value = swap;
+                    return;
+                } else {
+                    tmp = root.value;
+                    last = root;
+                }
                 root = root.right;
-            }
-        }
-        Collections.sort(num);
-        for (int i = 0; i < num.size(); i++) {
-            if(num.get(i)!=list.get(i).value){
-                list.get(i).value = num.get(i);
             }
         }
     }
