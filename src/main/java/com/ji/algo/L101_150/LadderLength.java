@@ -4,10 +4,7 @@ package com.ji.algo.L101_150;/*
     time 10:02 AM
 */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LadderLength {
     public static void main(String[] args) {
@@ -17,59 +14,53 @@ public class LadderLength {
         System.out.println(new LadderLength().ladderLength(begin, end, list));
     }
 
-    int count = Integer.MAX_VALUE;
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        if (wordList == null || wordList.size() == 0) return 0;
+        //hashset的好处：去重也完成了
+        //开始端
+        HashSet<String> start = new HashSet<>();
+        //结束端
+        HashSet<String> end = new HashSet<>();
+        //所有字符串的字典
+        HashSet<String> dic = new HashSet<>(wordList);
+        start.add(beginWord);
+        end.add(endWord);
+        if (!dic.contains(endWord)) return 0;
+        //经历过上面的一系列判定，到这里的时候，若是有路径，则最小是2，所以以2开始
+        return bfs(start, end, dic, 2);
 
-    public int ladderLength(String begin, String end, List<String> wordList) {
-        if (wordList.indexOf(end) == -1)
-            return 0;
-        Map<String, Map<String, Integer>> map = new HashMap<>();
-        map.put(begin, new HashMap<>());
-        for (int i = 0; i < wordList.size(); i++) {
-            if (isChange(begin, wordList.get(i))) {
-                map.get(begin).put(wordList.get(i), 1);
-            }
+    }
+
+    public int bfs(HashSet<String> st, HashSet<String> ed, HashSet<String> dic, int l) {
+        //双端查找的时候，若是有任意一段出现了“断裂”，也就是说明不存在能够连上的路径，则直接返回0
+        if (st.size() == 0) return 0;
+        if (st.size() > ed.size()) {//双端查找，为了优化时间，永远用少的去找多的，比如开始的时候塞进了1000个，而结尾只有3个，则肯定是从少的那一端开始走比较好
+            return bfs(ed, st, dic, l);
         }
-        for (int i = 0; i < wordList.size(); i++) {
-            map.put(wordList.get(i), new HashMap<>());
-            for (int j = 0; j < wordList.size(); j++) {
-                if (isChange(wordList.get(i), wordList.get(j))) {
-                    map.get(wordList.get(i)).put(wordList.get(j), 1);
+        //BFS的标记行为，即使用过的不重复使用
+        dic.removeAll(st);
+        //收集下一层临近点
+        HashSet<String> next = new HashSet<>();
+        for (String s : st) {
+            char[] arr = s.toCharArray();
+            for (int i = 0; i < arr.length; i++) {
+                char tmp = arr[i];
+                //变化
+                for (char c = 'a'; c <= 'z'; c++) {
+                    if (tmp == c) continue;
+                    arr[i] = c;
+                    String nstr = new String(arr);
+                    if (dic.contains(nstr)) {
+                        if (ed.contains(nstr)) return l;
+                        else next.add(nstr);
+                    }
                 }
+                //复原
+                arr[i] = tmp;
             }
         }
-        help(begin, map, 1, end, new HashMap<>());
-        return count == Integer.MAX_VALUE ? 0 : count;
+        return bfs(next, ed, dic, l + 1);
     }
 
-    public void help(String start, Map<String, Map<String, Integer>> map, int len, String end, Map<String, Integer> path) {
-        if (len >= count)
-            return;
-        path.put(start, 1);
-        Map<String, Integer> tmp = map.get(start);
-        if (tmp.containsKey(end)) {
-            count = Math.min(count, len + 1);
-            return;
-        }
-        for (String s : tmp.keySet()
-                ) {
-            if (path.containsKey(s))
-                continue;
-            path.put(s, 1);
-            help(s, map, len + 1, end, new HashMap<>(path));
-            path.remove(s);
-        }
-    }
-
-
-    public boolean isChange(String s, String s1) {
-        int count = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != s1.charAt(i))
-                count++;
-            if (count > 1)
-                return false;
-        }
-        return count == 1;
-    }
 
 }
