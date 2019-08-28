@@ -22,3 +22,5 @@ where (a.id = b.id+1 and a.id = c.id+2 and a.people>=100 and b.people >=100
        and c.people>=100)
 
        order by a.id;
+#1069.销售分析II
+select product_id,sum(quantity) as total_quantity from Sales group by product_id;
