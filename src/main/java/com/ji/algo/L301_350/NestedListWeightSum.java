@@ -6,10 +6,10 @@ package com.ji.algo.L301_350;/*
 
 public class NestedListWeightSum {
     public static void main(String[] args) {
-
+        System.out.println(solution("[1,[4,[6]]]]"));
     }
 
-    public int solution(String tmp) {
+    public static  int solution(String tmp) {
         int count = 0;
         int dep = 0;
         int num = 0;
