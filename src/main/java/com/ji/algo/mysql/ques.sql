@@ -24,3 +24,13 @@ where (a.id = b.id+1 and a.id = c.id+2 and a.people>=100 and b.people >=100
        order by a.id;
 #1069.销售分析II
 select product_id,sum(quantity) as total_quantity from Sales group by product_id;
+
+#ques511.游戏分析 获取每一个用户的第一次登陆时间
+select player_id,min(first_login) from Activity group by player_id;
+
+#ques512 Game Play Analysis II
+select player_id,min(first_login),device_id from Activity group by player_id;
+
+#577.Employee Bonus
+select name,bonus from Employee e left join Bonus b on e.empId = b.empId
+where bonus < 1000;
