@@ -11,10 +11,40 @@ public class CloestBinary {
 
     }
 
-    int min = Integer.MAX_VALUE;
-    int last = 0;
+    public int searchTree(TreeNode root, int target) {
+        if (root.left == null && root.right == null)
+            return root.value;
+        if (root.value < target && root.right == null)
+            return root.value;
+        if (root.value > target && root.left == null)
+            return root.value;
+        if (root.value == target)
+            return target;
+        if (root.value > target) {
+            return help(root.left, target, root.value);
+        } else {
+            return help(root.right, target, root.value);
+        }
+    }
 
-//    public int searchTree(TreeNode root, int target) {
-//
-//    }
+    public int help(TreeNode root, int target, int last) {
+        if (root.value < target && root.right == null)
+            return root.value;
+        if (root.value > target && root.left == null)
+            return root.value;
+        if (target < last && root.value > target) {
+            return Math.abs(last - target) > Math.abs(target - root.value) ? root.value : last;
+        }
+        if (target < last && root.value < target) {
+            return Math.abs(last - target) > Math.abs(target - root.value) ? root.value : last;
+        }
+        if (root.value == target)
+            return target;
+        if (root.value > target) {
+            return help(root.left, target, root.value);
+        } else {
+            return help(root.right, target, root.value);
+        }
+
+    }
 }
