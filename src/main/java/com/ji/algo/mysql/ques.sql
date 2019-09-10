@@ -34,3 +34,12 @@ select player_id,min(first_login),device_id from Activity group by player_id;
 #577.Employee Bonus
 select name,bonus from Employee e left join Bonus b on e.empId = b.empId
 where bonus < 1000;
+
+#584.Find Customer Referee
+select name from customer where referee_id !=2;
+
+
+#586.Customer Placing the Largest Number of Orders
+select count(*) as count  ,customer_number from orders where
+count = (select max (count(*) as count) from orders group by customer_number)
+group by  customer_number;
