@@ -41,5 +41,8 @@ select name from customer where referee_id !=2;
 
 #586.Customer Placing the Largest Number of Orders
 select count(*) as count  ,customer_number from orders where
-count = (select max (count(*) as count) from orders group by customer_number)
+count = (select max(count) from (select max (count(*) as count) from orders group by customer_number) as a)
 group by  customer_number;
+
+#574.Winning Candidate
+select name from person where id in (select vote from (select max(count) ,vote from (select count(*) as count ,vote from ques57 group  by vote) as a) b);
