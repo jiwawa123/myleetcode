@@ -24,7 +24,7 @@ public class CGLibProxy implements MethodInterceptor{
         return proxyObj;
     }
 
-    
+
     @Override
     public Object intercept(Object proxy, Method method, Object[] args,
                             MethodProxy methodProxy) throws Throwable {
