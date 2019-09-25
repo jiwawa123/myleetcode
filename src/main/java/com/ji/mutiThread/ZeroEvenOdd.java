@@ -45,7 +45,7 @@ public class ZeroEvenOdd {
     public void odd() throws InterruptedException {
         for (int i = 1; i < n; i += 2) {
             two.acquire();
-            
+
             zero.release();
         }
     }
