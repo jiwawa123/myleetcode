@@ -42,7 +42,7 @@ public class G3 {
         }
         if(root==null)
             return;
-        if(root.value!=head.val)
+        if(root.val !=head.val)
             return;
         help(head.next,root.left);
         help(head.next,root.right);

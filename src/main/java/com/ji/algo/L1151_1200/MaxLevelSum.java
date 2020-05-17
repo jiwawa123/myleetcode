@@ -26,7 +26,7 @@ public class MaxLevelSum {
             Queue<TreeNode> que = new LinkedList<>();
             while (!queue.isEmpty()) {
                 TreeNode tmp = queue.remove();
-                count += tmp.value;
+                count += tmp.val;
                 if (tmp.left != null) {
                     que.add(tmp.left);
                 }

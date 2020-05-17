@@ -23,7 +23,7 @@ public class KthSmallest {
                 root = stack.pop();
                 index++;
                 if(index==k)
-                    return root.value;
+                    return root.val;
                 root = root.right;
             }
         }

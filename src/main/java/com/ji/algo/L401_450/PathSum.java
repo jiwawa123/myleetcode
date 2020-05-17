@@ -31,7 +31,7 @@ public class PathSum {
 
     public void Sum(TreeNode root, int sum){
         if(root == null) return;
-        sum-=root.value;
+        sum-=root.val;
         if(sum == 0){
             pathnumber++;
         }

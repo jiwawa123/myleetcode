@@ -20,7 +20,7 @@ public class DeleteNode {
     public static TreeNode deleteNode(TreeNode root, int key) {
         if (root == null)
             return root;
-        if (root.value == key) {
+        if (root.val == key) {
             if (root.left == null) {
                 return root.right;
             }
@@ -33,7 +33,7 @@ public class DeleteNode {
             rightSmallest.left = root.left;
             return root.right;
         }
-        if (root.value > key) {
+        if (root.val > key) {
             root.left = deleteNode(root.left, key);
             return root;
         } else {

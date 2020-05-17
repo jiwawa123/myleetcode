@@ -33,13 +33,13 @@ public class DistanceK {
         if (root == null) {
             return;
         }
-        if (map.containsKey(root.value))
+        if (map.containsKey(root.val))
             return;
         if (k == 0) {
-            list.add(root.value);
+            list.add(root.val);
             return;
         }
-        map.put(root.value, 1);
+        map.put(root.val, 1);
         help(root.left, k - 1, new HashMap<>(map));
         help(root.right, k - 1, new HashMap<>(map));
         help(pre.get(root), k - 1, new HashMap<>(map));

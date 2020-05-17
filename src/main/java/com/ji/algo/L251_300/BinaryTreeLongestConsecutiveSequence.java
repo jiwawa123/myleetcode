@@ -23,12 +23,12 @@ public class BinaryTreeLongestConsecutiveSequence {
         if (root == null)
             return;
         count = Math.max(count, dep);
-        if (root.left != null && root.left.value == root.value + 1) {
+        if (root.left != null && root.left.val == root.val + 1) {
             help(root.left, dep + 1);
         } else {
             help(root.left, 1);
         }
-        if (root.right != null && root.right.value == root.value + 1) {
+        if (root.right != null && root.right.val == root.val + 1) {
             help(root.right, dep + 1);
         } else {
             help(root.right, 1);

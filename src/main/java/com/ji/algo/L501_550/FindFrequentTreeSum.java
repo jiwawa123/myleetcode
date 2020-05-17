@@ -51,10 +51,10 @@ public class FindFrequentTreeSum {
         if (root == null)
             return;
         if (root.left == null && root.right == null) {
-            map.put(root.value, map.getOrDefault(root.value, 0) + 1);
+            map.put(root.val, map.getOrDefault(root.val, 0) + 1);
             return;
         }
-        int sum = root.value + sum(root.left) + sum(root.right);
+        int sum = root.val + sum(root.left) + sum(root.right);
         map.put(sum, map.getOrDefault(sum, 0) + 1);
         return;
     }
@@ -63,10 +63,10 @@ public class FindFrequentTreeSum {
         if (root == null)
             return 0;
         if (root.left == null && root.right == null) {
-            map.put(root.value, map.getOrDefault(root.value, 0) + 1);
-            return root.value;
+            map.put(root.val, map.getOrDefault(root.val, 0) + 1);
+            return root.val;
         }
-        int sum = root.value + sum(root.left) + sum(root.right);
+        int sum = root.val + sum(root.left) + sum(root.right);
         map.put(sum, map.getOrDefault(sum, 0) + 1);
         return sum;
 

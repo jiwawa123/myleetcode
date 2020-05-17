@@ -27,7 +27,7 @@ public class PreOrderTraversal {
             if (root == null) {
                 root = stack.pop();
             }
-            list.add(root.value);
+            list.add(root.val);
             if (root.right != null) {
                 stack.add(root.right);
             }

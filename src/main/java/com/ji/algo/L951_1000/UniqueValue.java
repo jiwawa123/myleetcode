@@ -16,11 +16,11 @@ public class UniqueValue {
     public boolean isUnivalTree(TreeNode root) {
         if (root == null)
             return true;
-        int k = root.value;
+        int k = root.val;
         Stack<TreeNode> stack = new Stack();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
-                if (root.value != k)
+                if (root.val != k)
                     return false;
                 else
                     stack.push(root);

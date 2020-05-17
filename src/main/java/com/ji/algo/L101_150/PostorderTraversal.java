@@ -31,7 +31,7 @@ public class PostorderTraversal {
                 root = stack.peek();
                 if ((root.left == null||map.containsKey(root.left)) && (root.right == null||map.containsKey(root.right))) {
                     stack.pop();
-                    list.add(root.value);
+                    list.add(root.val);
                     root = null;
                     continue;
                 }

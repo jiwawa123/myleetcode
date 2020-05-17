@@ -38,7 +38,7 @@ public class Codec {
     public void preOrder(TreeNode root) {
         if (root == null)
             return;
-        pre.add(root.value);
+        pre.add(root.val);
         preOrder(root.left);
         preOrder(root.right);
     }
@@ -47,7 +47,7 @@ public class Codec {
         if (root == null)
             return;
         postOrder(root.left);
-        post.add(root.value);
+        post.add(root.val);
         postOrder(root.right);
     }
 

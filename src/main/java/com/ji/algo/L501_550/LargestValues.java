@@ -25,7 +25,7 @@ public class LargestValues {
             int val = Integer.MIN_VALUE;
             while (!queue.isEmpty()) {
                 TreeNode tmp = queue.remove();
-                val = Math.max(val,tmp.value);
+                val = Math.max(val,tmp.val);
                 if (tmp.left != null)
                     que.add(tmp.left);
                 if (tmp.right != null)

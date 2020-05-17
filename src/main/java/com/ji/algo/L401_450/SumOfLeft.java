@@ -25,7 +25,7 @@ public class SumOfLeft {
         if (root == null)
             return;
         if (flag && root != null && root.left == null && root.right == null) {
-            count += root.value;
+            count += root.val;
             return;
         }
         help(root.left, true);

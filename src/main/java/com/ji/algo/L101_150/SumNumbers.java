@@ -24,11 +24,11 @@ public class SumNumbers {
         if(root==null)
             return;
         if (root.left == null && root.right == null) {
-            s += root.value;
+            s += root.val;
             count+=Integer.valueOf(s);
             return;
         }
-        help_sum(root.left,s+root.value);
-        help_sum(root.right,s+root.value);
+        help_sum(root.left,s+root.val);
+        help_sum(root.right,s+root.val);
     }
 }

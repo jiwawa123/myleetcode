@@ -25,9 +25,9 @@ public class GetMinimumDifference {
             } else {
                 root = stack.pop();
                 if (flag) {
-                    count = Math.min(count, Math.abs(tmp - root.value));
+                    count = Math.min(count, Math.abs(tmp - root.val));
                 } else {
-                    tmp = root.value;
+                    tmp = root.val;
                 }
                 root = root.right;
             }

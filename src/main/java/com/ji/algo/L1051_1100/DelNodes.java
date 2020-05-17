@@ -4,7 +4,6 @@ package com.ji.algo.L1051_1100;/*
     time 11:09 AM
 */
 
-import com.ji.algo.Util.ListNode;
 import com.ji.algo.Util.TreeNode;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class DelNodes {
     public void help(TreeNode root) {
         if (root == null)
             return;
-        if (map.containsKey(root.value)) {
+        if (map.containsKey(root.val)) {
             help(root.left);
             help(root.right);
         } else {
@@ -47,7 +46,7 @@ public class DelNodes {
     public TreeNode delete(TreeNode root) {
         if (root == null)
             return root;
-        if (map.containsKey(root.value)) {
+        if (map.containsKey(root.val)) {
             help(root.left);
             help(root.right);
             return null;

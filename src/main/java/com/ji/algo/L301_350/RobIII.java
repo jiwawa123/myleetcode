@@ -21,7 +21,7 @@ public class RobIII {
         }else{
             int left[] = help(root.left);
             int right[] = help(root.right);
-            arr[0] = root.value + left[1] + right[1];
+            arr[0] = root.val + left[1] + right[1];
             arr[1] = left[0]+right[0];
             if(arr[0]<arr[1])
                 arr[0] = arr[1];

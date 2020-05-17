@@ -13,37 +13,37 @@ public class CloestBinary {
 
     public int searchTree(TreeNode root, int target) {
         if (root.left == null && root.right == null)
-            return root.value;
-        if (root.value < target && root.right == null)
-            return root.value;
-        if (root.value > target && root.left == null)
-            return root.value;
-        if (root.value == target)
+            return root.val;
+        if (root.val < target && root.right == null)
+            return root.val;
+        if (root.val > target && root.left == null)
+            return root.val;
+        if (root.val == target)
             return target;
-        if (root.value > target) {
-            return help(root.left, target, root.value);
+        if (root.val > target) {
+            return help(root.left, target, root.val);
         } else {
-            return help(root.right, target, root.value);
+            return help(root.right, target, root.val);
         }
     }
 
     public int help(TreeNode root, int target, int last) {
-        if (root.value < target && root.right == null)
-            return root.value;
-        if (root.value > target && root.left == null)
-            return root.value;
-        if (target < last && root.value > target) {
-            return Math.abs(last - target) > Math.abs(target - root.value) ? root.value : last;
+        if (root.val < target && root.right == null)
+            return root.val;
+        if (root.val > target && root.left == null)
+            return root.val;
+        if (target < last && root.val > target) {
+            return Math.abs(last - target) > Math.abs(target - root.val) ? root.val : last;
         }
-        if (target < last && root.value < target) {
-            return Math.abs(last - target) > Math.abs(target - root.value) ? root.value : last;
+        if (target < last && root.val < target) {
+            return Math.abs(last - target) > Math.abs(target - root.val) ? root.val : last;
         }
-        if (root.value == target)
+        if (root.val == target)
             return target;
-        if (root.value > target) {
-            return help(root.left, target, root.value);
+        if (root.val > target) {
+            return help(root.left, target, root.val);
         } else {
-            return help(root.right, target, root.value);
+            return help(root.right, target, root.val);
         }
 
     }

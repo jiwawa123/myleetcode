@@ -23,22 +23,22 @@ public class AllPath {
     public void help_path(List<String> list,String tmp,TreeNode root){
         if(root.left==null&&root.right==null){
             if(tmp.equals(""))
-                list.add(root.value+"");
+                list.add(root.val +"");
             else
-                list.add(tmp+"->"+root.value);
+                list.add(tmp+"->"+root.val);
             return;
         }
         if(root.left!=null){
             if(tmp.equals(""))
-                help_path(list,""+root.value,root.left);
+                help_path(list,""+root.val,root.left);
             else
-                help_path(list,tmp+"->"+root.value,root.left);
+                help_path(list,tmp+"->"+root.val,root.left);
         }
         if(root.right!=null){
             if(tmp.equals(""))
-                help_path(list,""+root.value,root.right);
+                help_path(list,""+root.val,root.right);
             else
-                help_path(list,tmp+"->"+root.value,root.right);
+                help_path(list,tmp+"->"+root.val,root.right);
         }
     }
 }

@@ -31,7 +31,7 @@ public class ZigzagLevelOrder {
                 if (tp.right != null) {
                     que.add(tp.right);
                 }
-                tmp.add(tp.value);
+                tmp.add(tp.val);
                 if (!flag)
                     Collections.reverse(tmp);
                 list.add(tmp);

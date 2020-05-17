@@ -20,7 +20,7 @@ public class BSTIterator {
     public BSTIterator(TreeNode root) {
         if (root == null)
             return;
-        int tmp = root.value;
+        int tmp = root.val;
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
@@ -28,7 +28,7 @@ public class BSTIterator {
                 root = root.left;
             } else {
                 root = stack.pop();
-                list.add(root.value);
+                list.add(root.val);
                 root = root.right;
             }
         }

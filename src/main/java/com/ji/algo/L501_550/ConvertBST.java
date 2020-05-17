@@ -21,8 +21,8 @@ public class ConvertBST {
         if(root == null)
             return;
         unPreOrder(root.right);
-        root.value += preNum;
-        preNum = root.value;
+        root.val += preNum;
+        preNum = root.val;
         unPreOrder(root.left);
     }
 }

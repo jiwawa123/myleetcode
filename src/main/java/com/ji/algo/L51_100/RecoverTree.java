@@ -6,9 +6,6 @@ package com.ji.algo.L51_100;/*
 
 import com.ji.algo.Util.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 public class RecoverTree {
@@ -28,13 +25,13 @@ public class RecoverTree {
                 root = root.left;
             } else {
                 root = stack.pop();
-                if (root.value > tmp) {
-                    int swap = root.value;
-                    root.value = last.value;
-                    last.value = swap;
+                if (root.val > tmp) {
+                    int swap = root.val;
+                    root.val = last.val;
+                    last.val = swap;
                     return;
                 } else {
-                    tmp = root.value;
+                    tmp = root.val;
                     last = root;
                 }
                 root = root.right;

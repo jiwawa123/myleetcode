@@ -25,7 +25,7 @@ public class InorderTravel {
         if (root == null)
             return;
         inorder(root.left);
-        list.add(root.value);
+        list.add(root.val);
         inorder(root.right);
     }
 
@@ -40,7 +40,7 @@ public class InorderTravel {
                 root = root.left;
             }else{
                 TreeNode tmp = statck.pop();
-                list.add(tmp.value);
+                list.add(tmp.val);
                 root = tmp.right;
             }
         }

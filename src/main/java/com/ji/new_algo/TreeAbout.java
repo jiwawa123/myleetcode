@@ -23,7 +23,7 @@ public class TreeAbout {
         Stack<TreeNode> stack = new Stack();
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
-                System.out.println(root.value);
+                System.out.println(root.val);
                 stack.push(root);
                 root = root.left;
             } else {
@@ -40,7 +40,7 @@ public class TreeAbout {
                 root = root.left;
             } else {
                 root = stack.pop();
-                System.out.println(root.value);
+                System.out.println(root.val);
                 root = root.right;
             }
         }
@@ -53,7 +53,7 @@ public class TreeAbout {
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
-                list.add(root.value);
+                list.add(root.val);
                 root = root.right;
             } else {
                 root = stack.pop();

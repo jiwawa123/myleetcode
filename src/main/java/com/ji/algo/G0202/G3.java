@@ -36,10 +36,10 @@ public class G3 {
         if (root == null) {
             return 0;
         }
-        sum += root.value;
+        sum += root.val;
         int left = help(root.left);
         int right = help(root.right);
-        int val = left + right + root.value;
+        int val = left + right + root.val;
         map.put(root, val*1L);
         return val;
     }

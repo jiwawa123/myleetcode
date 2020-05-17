@@ -31,7 +31,7 @@ public class LeafSimilar {
             if (root1 != null) {
                 statck.push(root1);
                 if (root1.left == null && root1.right == null) {
-                    list.add(root1.value);
+                    list.add(root1.val);
                 }
                     root1 = root1.left;
 
@@ -47,7 +47,7 @@ public class LeafSimilar {
             if (root2 != null) {
                 statck1.push(root2);
                 if (root2.left == null && root2.right == null) {
-                    list1.add(root2.value);
+                    list1.add(root2.val);
                 }
                     root2 = root2.left;
 

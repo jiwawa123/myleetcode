@@ -10,7 +10,7 @@ public class InsertIntoMaxTree {
     public TreeNode insertIntoMaxTree(TreeNode root, int val) {
         if (root == null)
             return new TreeNode(val);
-        if (root.value < val) {
+        if (root.val < val) {
             TreeNode tmp = new TreeNode(val);
             tmp.left = root;
             return tmp;

@@ -25,7 +25,7 @@ public class FindBottomLeftValue {
             Queue<TreeNode> que = new LinkedList<>();
             while (!queue.isEmpty()) {
                 TreeNode tmp = queue.remove();
-                list.add(tmp.value);
+                list.add(tmp.val);
                 if (tmp.left != null)
                     que.add(tmp.left);
                 if (tmp.right != null)

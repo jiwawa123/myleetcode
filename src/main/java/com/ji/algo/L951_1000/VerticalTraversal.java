@@ -21,7 +21,7 @@ public class VerticalTraversal {
         Map<Integer, Map<Integer, List<Integer>>> map = new HashMap<>();
         List<Integer> f = new ArrayList<>();
         Map<Integer, List<Integer>> li = new HashMap<>();
-        f.add(root.value);
+        f.add(root.val);
         li.put(0, f);
         map.put(0, li);
         help(root.left, -1, 0, 0, map);
@@ -57,7 +57,7 @@ public class VerticalTraversal {
         if (direction == -1) {
             Map<Integer, List<Integer>> tmp = map.getOrDefault(index - 1, new HashMap<>());
             List<Integer> l = tmp.getOrDefault(dep, new LinkedList<>());
-            l.add(root.value);
+            l.add(root.val);
             tmp.put(dep, l);
             map.put(index - 1, tmp);
             help(root.left, -1, index - 1, dep + 1, map);
@@ -65,7 +65,7 @@ public class VerticalTraversal {
         } else {
             Map<Integer, List<Integer>> tmp = map.getOrDefault(index + 1, new HashMap<>());
             List<Integer> l = tmp.getOrDefault(dep, new LinkedList<>());
-            l.add(root.value);
+            l.add(root.val);
             tmp.put(dep, l);
             map.put(index + 1, tmp);
             help(root.left, -1, index + 1, dep + 1, map);

@@ -25,7 +25,7 @@ public class FindSecondMinimumValue {
                 root = root.left;
             } else {
                 root = statck.pop();
-                list.add(root.value);
+                list.add(root.val);
                 root = root.right;
             }
         }

@@ -22,8 +22,8 @@ public class SumEvenGrandparent {
         if (root == null)
             return;
         if (grand % 2 == 0)
-            sum += root.value;
-        help(root.left, father, root.value);
-        help(root.right, father, root.value);
+            sum += root.val;
+        help(root.left, father, root.val);
+        help(root.right, father, root.val);
     }
 }

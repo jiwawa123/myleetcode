@@ -41,7 +41,7 @@ public class SubTree {
     public boolean helpI(TreeNode t1, TreeNode t2) {
         if (t1 == null && t2 == null)
             return true;
-        if (t1 == null || t2 == null || t1.value != t2.value)
+        if (t1 == null || t2 == null || t1.val != t2.val)
             return false;
         return helpI(t1.left, t2.left) && helpI(t1.right, t2.right);
     }

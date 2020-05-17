@@ -27,7 +27,7 @@ public class AverageLevel {
             int sum = 0;
             while (!queue.isEmpty()) {
                 TreeNode tmp = queue.remove();
-                sum += tmp.value;
+                sum += tmp.val;
                 len++;
                 if (tmp.left != null)
                     que.add(tmp.left);

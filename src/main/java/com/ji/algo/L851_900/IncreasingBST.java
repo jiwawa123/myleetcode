@@ -6,8 +6,6 @@ package com.ji.algo.L851_900;/*
 
 import com.ji.algo.Util.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 public class IncreasingBST {
@@ -25,7 +23,7 @@ public class IncreasingBST {
                 root = root.left;
             } else {
                 root = stack.pop();
-                right.right = new TreeNode(right.value);
+                right.right = new TreeNode(right.val);
                 right = right.right;
                 root = root.right;
             }

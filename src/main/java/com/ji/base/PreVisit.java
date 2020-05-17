@@ -25,7 +25,7 @@ public class PreVisit {
         Stack<TreeNode> stack = new Stack<>();
         while (!stack.isEmpty() || root != null) {
             if (root != null) {
-                list.add(root.value);
+                list.add(root.val);
                 stack.push(root);
                 root = root.right;
             } else {
@@ -45,7 +45,7 @@ public class PreVisit {
         while (!stack.isEmpty() || root != null) {
             if (root == null) {
                 root = stack.pop();
-                System.out.println(root.value);
+                System.out.println(root.val);
                 root = root.right;
             } else {
                 stack.push(root);

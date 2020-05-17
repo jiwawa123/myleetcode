@@ -14,20 +14,20 @@ public class RemoveLeafNodes {
         treeNode.left.left = new TreeNode(2);
         treeNode.right.left = new TreeNode(2);
         treeNode.right.right = new TreeNode(4);
-        System.out.println(removeLeafNodes(treeNode,2).value);
+        System.out.println(removeLeafNodes(treeNode,2).val);
     }
 
     public static TreeNode removeLeafNodes(TreeNode root, int target) {
         if (root == null)
             return root;
         if (root.left == null && root.right == null) {
-            if (root.value == target)
+            if (root.val == target)
                 return null;
             return root;
         } else {
             root.left = removeLeafNodes(root.left, target);
             root.right = removeLeafNodes(root.right, target);
-            if(root.value!=target||root.left!=null||root.right!=null)
+            if(root.val !=target||root.left!=null||root.right!=null)
                 return root;
             return removeLeafNodes(root,target);
         }

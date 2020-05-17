@@ -25,13 +25,13 @@ public class IsValidBST {
                 TreeNode tmp = stack.pop();
                 root = tmp.right;
                 if(flag){
-                    min = tmp.value;
+                    min = tmp.val;
                     flag = false;
                     continue;
                 }
-                if (min > tmp.value)
+                if (min > tmp.val)
                     return false;
-                min = tmp.value;
+                min = tmp.val;
 
             }
         }

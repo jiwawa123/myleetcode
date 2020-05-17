@@ -30,13 +30,13 @@ public class BstToGst {
         if(root==null)
             return;
         help(root.left);
-        list.add(root.value);
+        list.add(root.val);
         help(root.right);
     }
     public void helpI(TreeNode root){
         if(root==null)
             return;
-        root.value = map.get(root.value);
+        root.val = map.get(root.val);
         helpI(root.left);
         helpI(root.right);
     }

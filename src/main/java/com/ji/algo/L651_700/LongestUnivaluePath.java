@@ -17,13 +17,13 @@ public class LongestUnivaluePath {
     public void help(TreeNode root){
         if(root==null)
             return ;
-        int l = root.value;
+        int l = root.val;
         count = Math.max(1+help1(root.left,l)+help1(root.right,l),count);
         help(root.left);
         help(root.right);
     }
     public int help1(TreeNode root,int l){
-        if(root==null||root.value!=l)
+        if(root==null||root.val !=l)
             return 0;
         return 1+Math.max(help1(root.left,l),help1(root.right,l));
     }

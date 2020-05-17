@@ -23,7 +23,7 @@ public class LevelOrderBottom {
             Queue<TreeNode> que = new LinkedList<>();
             while(!queue.isEmpty()){
                 TreeNode tt = queue.remove();
-                tmp.add(tt.value);
+                tmp.add(tt.val);
                 if(tt.left!=null){
                     que.add(tt.left);
                 }

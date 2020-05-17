@@ -26,7 +26,7 @@ public class FindTarget {
                 root = root.left;
             } else {
                 root = stack.pop();
-                list.add(root.value);
+                list.add(root.val);
                 root = root.right;
             }
         }

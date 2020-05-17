@@ -30,7 +30,7 @@ public class LargestBSTSubtree {
         boolean r = true;
         int ll = 0,rr = 0;
         if(leaf.left!=null){
-            if(leaf.left.value<leaf.value){
+            if(leaf.left.val <leaf.val){
                 int left = help(leaf.left);
                 if(left==0){
                     l = false;
@@ -44,7 +44,7 @@ public class LargestBSTSubtree {
 
         }
         if(leaf.right!=null){
-            if(leaf.right.value>leaf.value){
+            if(leaf.right.val >leaf.val){
                 int right = help(leaf.right);
                 if(right==0){
                     r = false;

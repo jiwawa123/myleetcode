@@ -21,14 +21,14 @@ public class RangeSumBST {
     public void help(TreeNode root, int L, int R) {
         if (root == null)
             return;
-        if (root.value < L) {
+        if (root.val < L) {
             help(root.right, L, R);
         }
-        if (root.value > R) {
+        if (root.val > R) {
             help(root.left, L, R);
         }
-        if (root.value >= L && root.value <= R) {
-            sum += root.value;
+        if (root.val >= L && root.val <= R) {
+            sum += root.val;
             help(root.left, L, R);
             help(root.right, L, R);
         }

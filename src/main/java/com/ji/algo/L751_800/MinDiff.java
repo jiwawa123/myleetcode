@@ -21,8 +21,8 @@ public class MinDiff {
             return;
         }else {
             help(treeNode.left);
-            if(pre != null  && Math.abs(treeNode.value - pre.value) < min){
-                min = Math.abs(treeNode.value - pre.value);
+            if(pre != null  && Math.abs(treeNode.val - pre.val) < min){
+                min = Math.abs(treeNode.val - pre.val);
             }
             pre = treeNode;
             help(treeNode.right);

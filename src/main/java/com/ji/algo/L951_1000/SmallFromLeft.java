@@ -36,7 +36,7 @@ public class SmallFromLeft {
         if (root == null)
             return;
         StringBuilder sp = new StringBuilder();
-        sp.append((char) (root.value + 'a'));
+        sp.append((char) (root.val + 'a'));
         sp.append(str);
         if (root.left == null || root.right == null) {
             res.add(sp.toString());

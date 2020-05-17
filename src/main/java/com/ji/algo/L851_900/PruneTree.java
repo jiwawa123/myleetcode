@@ -20,7 +20,7 @@ public class PruneTree {
     public boolean one(TreeNode root){
         if(root==null)
             return false;
-        if(root.value==1)
+        if(root.val ==1)
             return true;
         return one(root.left)||one(root.right);
     }

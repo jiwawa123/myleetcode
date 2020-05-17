@@ -5,7 +5,6 @@ package com.ji.algo.L951_1000;/*
 */
 
 import com.ji.algo.Util.TreeNode;
-import org.omg.PortableInterceptor.INACTIVE;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,10 +25,10 @@ public class IsCousins {
         if (root == null)
             return;
         else {
-            map.put(root.value, par);
-            depth.put(root.value,tmp);
-            help(root.left, root.value, map,depth,tmp+1);
-            help(root.right, root.value, map,depth,tmp+1);
+            map.put(root.val, par);
+            depth.put(root.val,tmp);
+            help(root.left, root.val, map,depth,tmp+1);
+            help(root.right, root.val, map,depth,tmp+1);
         }
     }
 }

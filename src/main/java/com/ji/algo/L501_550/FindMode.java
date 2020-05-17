@@ -20,7 +20,7 @@ public class FindMode {
         int count = 0;
         while (!statck.isEmpty() || root != null) {
             if (root != null) {
-                map.put(root.value, map.getOrDefault(root.value, 0) + 1);
+                map.put(root.val, map.getOrDefault(root.val, 0) + 1);
                 statck.push(root);
                 root = root.left;
             } else {

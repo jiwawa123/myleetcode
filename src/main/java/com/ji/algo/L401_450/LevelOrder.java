@@ -27,7 +27,7 @@ public class LevelOrder {
             List<Integer> list = new ArrayList<>();
             while (!queue.isEmpty()) {
                 TreeNode tmp = queue.remove();
-                list.add(tmp.value);
+                list.add(tmp.val);
                 if (tmp.left != null)
                     que.add(tmp.left);
                 if (tmp.right != null)

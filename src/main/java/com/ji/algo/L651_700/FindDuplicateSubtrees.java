@@ -28,7 +28,7 @@ public class FindDuplicateSubtrees {
         StringBuilder right = findDuplicateSubtrees(root.right, res, map);
         //注意这里的加和顺序
         // StringBuilder treeKey = left.append(new StringBuilder(root.val + "")).append(right);
-        StringBuilder treeKey = new StringBuilder(root.value + "").append(left).append(right);
+        StringBuilder treeKey = new StringBuilder(root.val + "").append(left).append(right);
         map.put(treeKey.toString(), map.getOrDefault(treeKey.toString(), 0) + 1);
         if(map.get(treeKey.toString()) == 2){
             res.add(root);

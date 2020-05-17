@@ -6,9 +6,6 @@ package com.ji.algo.L1001_1050;/*
 
 import com.ji.algo.Util.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MaxAncestorDiff {
     public static void main(String[] args) {
 
@@ -25,10 +22,10 @@ public class MaxAncestorDiff {
         if (root == null)
             return;
         if (max == Integer.MIN_VALUE && min == Integer.MAX_VALUE) {
-            max = min = root.value;
+            max = min = root.val;
         } else {
-            max = Math.max(root.value, max);
-            min = Math.min(root.value, min);
+            max = Math.max(root.val, max);
+            min = Math.min(root.val, min);
             count = Math.max(count, max - min);
         }
         help(max, min, root.left);

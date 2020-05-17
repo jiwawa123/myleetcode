@@ -44,7 +44,7 @@ public class CBTInserter {
         int size = dep.get(height).size();
         int all = (int) Math.pow(2, height - 1);
         if (size == all) {
-            int res = dep.get(height).get(0).value;
+            int res = dep.get(height).get(0).val;
             TreeNode tmp = dep.get(height).get(0);
             TreeNode l = new TreeNode(v);
             tmp.left = l;
@@ -66,7 +66,7 @@ public class CBTInserter {
                 par.left = tmp;
             }
             dep.put(height, list);
-            return par.value;
+            return par.val;
         }
     }
 

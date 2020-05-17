@@ -34,12 +34,12 @@ public class CountUnivalueSubtrees {
         boolean l = true;
         boolean r = true;
         if (root.left != null) {
-            if (root.left.value != root.value)
+            if (root.left.val != root.val)
                 return false;
             l = help(root.left);
         }
         if (root.right != null) {
-            if (root.right.value != root.value)
+            if (root.right.val != root.val)
                 return false;
             r = help(root.right);
         }
