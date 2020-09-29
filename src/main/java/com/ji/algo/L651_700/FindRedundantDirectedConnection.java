@@ -10,30 +10,47 @@ import java.util.List;
 
 public class FindRedundantDirectedConnection {
 
-    int arr[];
-    List<int[]> list;
-
     public int[] findRedundantDirectedConnection(int[][] edges) {
-        arr = new int[edges.length + 1];
+        int arr[] = new int[edges.length];
         Arrays.fill(arr, -1);
-        list = new ArrayList<>();
+        int first = -1, last = -1;
         for (int i = 0; i < edges.length; i++) {
-            int[] tmp = edges[i];
-            int s = getIndex(tmp[0]);
-            int f = getIndex(tmp[1]);
-            if (s == f) {
-                list.add(tmp);
-                continue;
+            int tmp[] = edges[i];
+            int start = tmp[0];
+            int end = tmp[1];
+            if (arr[end] != -1) {
+                first = arr[end];
+                last = i;
+                break;
             }
-            arr[f] = s;
+            arr[end] = i;
         }
-        return list.get(list.size() - 1);
+        if (first == -1 && last == -1)
+            return findRedundantConnectionHelp(edges);
+        return edges[first] ;
     }
 
-    public int getIndex(int t) {
-        while (arr[t] != -1) {
-            t = arr[t];
+    public static int[] findRedundantConnectionHelp(int[][] edges) {
+        int pre[] = new int[edges.length + 1];
+        int arr[] = new int[2];
+        Arrays.fill(pre, -1);
+        for (int i = 0; i < edges.length; i++) {
+            int start = edges[i][0];
+            int end = edges[i][1];
+            while (pre[start] != -1) {
+                start = pre[start];
+            }
+            while (pre[end] != -1) {
+                end = pre[end];
+            }
+            if (start == end) {
+                arr[0] = edges[i][0];
+                arr[1] = edges[i][1];
+                return arr;
+            } else {
+                pre[start] = end;
+            }
         }
-        return t;
+        return arr;
     }
 }
