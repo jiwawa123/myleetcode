@@ -9,6 +9,7 @@ public class App {
     public static void main(String[] args) {
         Random rd = new Random();
         System.out.println(rd.nextInt());
+
     }
 
     public static int threeSumClosest(int[] nums, int target) {
