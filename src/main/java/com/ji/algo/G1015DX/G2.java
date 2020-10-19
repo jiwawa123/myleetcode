@@ -15,7 +15,7 @@ public class G2 {
                 for (int j = 0; j < a.length(); j++) {
                     System.out.print(a.charAt(j));
                     if (j != 3)
-                        System.out.print("");
+                        System.out.print(" ");
                 }
                 System.out.println();
             }
