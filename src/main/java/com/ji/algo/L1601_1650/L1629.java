@@ -1,4 +1,4 @@
-package com.ji.algo.L1601;
+package com.ji.algo.L1601_1650;
 
 /**
  * user ji
