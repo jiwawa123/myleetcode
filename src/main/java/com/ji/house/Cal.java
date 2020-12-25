@@ -6,14 +6,19 @@ package com.ji.house;/*
 
 public class Cal {
     public static void main(String[] args) {
-        help(5, 15, 0.05);
+        help(50, 20, 55, 0.05, 12);
     }
 
-    public static void help(int years, double start, double rate) {
-        double count = 0;
+    public static void help(double count, int years, double start, double rate, double cost) {
         for (int i = 0; i < years; i++) {
-            count += Math.pow(1.07, years - i) * start;
-            start = start * (1 + rate);
+            count += start - cost;
+            
+            if (i > 10) {
+                start = start * (1 + rate);
+            } else {
+                start = 0;
+            }
+            System.out.println(count + " " + i);
         }
         System.out.println(count);
     }
