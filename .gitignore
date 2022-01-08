@@ -1,3 +1,4 @@
 .gitignore
-.idea
+.idea/
 target
+leetcode.iml
