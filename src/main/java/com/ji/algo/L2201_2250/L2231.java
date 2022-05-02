@@ -20,24 +20,26 @@ public class L2231 {
         }
         List<Integer> odd = new ArrayList<>();
         List<Integer> even = new ArrayList<>();
+
         char[] arr = String.valueOf(num).toCharArray();
         for (int i = 0; i < arr.length; i++) {
-            if (i % 2 == 0) {
-                odd.add(arr[i] - '0');
+            int tmp = arr[i] - '0';
+            if (tmp % 2 == 0) {
+                odd.add(tmp);
             } else {
-                even.add(arr[i] - '0');
+                even.add(tmp);
             }
         }
         Collections.sort(odd);
         Collections.sort(even);
         int i = odd.size() - 1, j = even.size() - 1;
         StringBuilder sp = new StringBuilder();
-        while (i >= 0 || j >= 0) {
-            if (i >= 0) {
+        for (int k = 0; k < arr.length; k++) {
+            int tmp = arr[i] - '0';
+            if (tmp % 2 == 0) {
                 sp.append(odd.get(i--));
-            }
-            if (j >= 0) {
-                sp.append(even.get(j--));
+            }else{
+                sp.append(even.get(i--));
             }
         }
         return Integer.valueOf(sp.toString());
