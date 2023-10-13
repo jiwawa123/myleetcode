@@ -3,6 +3,7 @@ package com.ji.algo.Util;/*
     data 2019/4/3
     time 4:58 PM
 */
+
 /*
 工具包->链表的工具包
  */
@@ -12,6 +13,11 @@ public class ListNode {
 
     public ListNode(int val) {
         this.val = val;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
     }
 
 }
