@@ -1,4 +1,4 @@
-package com.ji.algo.L3051_4000;
+package com.ji.algo.L3051_L3100;
 
 import java.util.HashMap;
 import java.util.Map;
