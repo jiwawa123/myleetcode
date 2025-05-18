@@ -1,6 +1,5 @@
 package com.ji.pattern.countDownLatchTest;
 
-import org.omg.CORBA.TIMEOUT;
 
 import java.util.Random;
 import java.util.concurrent.Semaphore;
